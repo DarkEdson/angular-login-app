@@ -1,0 +1,16 @@
+.login-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+mat-card {
+  width: 300px;
+}
+
+@media screen and (max-width: 600px) {
+  mat-card {
+    width: 80%;
+  }
+}
