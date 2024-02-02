@@ -2,11 +2,17 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  text-align: center !important;
   height: 100vh;
 }
 
 mat-card {
   width: 300px;
+}
+
+.mat-card-header {
+  justify-content: center;
+  align-items: center !important;
 }
 
 @media screen and (max-width: 600px) {
