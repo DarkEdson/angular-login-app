@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth/auth.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -19,5 +19,8 @@ export class LoginComponent {
     }).catch((error) => {
       console.error('Error al iniciar sesión:', error);
     });
+  }
+  crearUsuario(){
+    this.router.navigate(['/registrarUser']);
   }
 }

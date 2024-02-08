@@ -1,0 +1,98 @@
+<div class="registro-container">
+  <mat-card>
+    <mat-card-header>
+      <img src="assets/logoInnova.jpg" alt="Logo">
+    </mat-card-header>
+    <mat-card-content>
+      <div class="input-row">
+        <mat-label>Nombres</mat-label> <!-- Etiqueta para el primer input -->
+        <input matInput placeholder="Nombre" [(ngModel)]="user.nombres"> <!-- Input para el usuario -->
+      </div>
+      <div class="input-row">
+        <mat-label>Apellidos</mat-label>
+        <input matInput placeholder="Apellido" [(ngModel)]="user.apellidos">
+      </div>
+      <div class="input-row">
+        <mat-label>CUI</mat-label>
+        <input matInput placeholder="CUI" [(ngModel)]="user.cui">
+      </div>
+      <div class="input-row">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput type="date" placeholder="Fecha de nacimiento"  [(ngModel)]="user.fechaSelect">
+
+        <mat-datepicker #picker ></mat-datepicker>
+      </div>
+      <div class="input-row">
+        <mat-label>Estado Civil</mat-label>
+        <mat-select [(ngModel)]="user.estadoCivil">
+          <mat-option *ngFor="let estadoCivil of estadosCivil" [value]="estadoCivil.IdEstadoCivil">{{ estadoCivil.NombreEstadoCivil }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="input-row">
+        <mat-label>Ocupación</mat-label>
+        <input matInput placeholder="Ocupación" [(ngModel)]="user.ocupacion">
+      </div>
+      <div class="input-row">
+        <mat-label>Comunidad Linguistica</mat-label>
+        <mat-select [(ngModel)]="user.comunidadLinguistica">
+          <mat-option *ngFor="let comunidadLinguistica of comunidadesLinguisticas" [value]="comunidadLinguistica.IdComunidadLinguistica">{{ comunidadLinguistica.NombreComunidadLinguistica }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="input-row">
+        <mat-label>Pueblo Pertenencia</mat-label>
+        <mat-select [(ngModel)]="user.puebloPertenencia">
+          <mat-option *ngFor="let comunidadLinguistica of pueblosPertenencia" [value]="comunidadLinguistica.IdPuebloPertenencia">{{ comunidadLinguistica.NombrePuebloPertenencia }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="input-row">
+        <mat-label>Correo Electronico</mat-label> <!-- Etiqueta para el primer input -->
+        <input matInput placeholder="Correo Electronico" [(ngModel)]="user.correoElectronico"> <!-- Input para el usuario -->
+      </div>
+      <div class="input-row">
+        <mat-label>Contraseña</mat-label>
+        <input matInput placeholder="Contraseña" [(ngModel)]="user.contrasena">
+      </div>
+      <div class="input-row">
+        <mat-label>Confirmar Contraseña</mat-label>
+        <input matInput placeholder="Confirmar Contraseña" [(ngModel)]="user.confirmarContrasena">
+      </div>
+      <div class="input-row">
+        <mat-label>Telefono</mat-label> <!-- Etiqueta para el primer input -->
+        <input matInput placeholder="Telefono" [(ngModel)]="user.telefono"> <!-- Input para el usuario -->
+      </div>
+      <div class="input-row">
+        <mat-label>Whatsapp</mat-label>
+        <input matInput placeholder="Whatsapp" [(ngModel)]="user.whatsapp">
+      </div>
+      <div class="input-row">
+        <mat-label>Dirección Notificación</mat-label>
+        <input matInput placeholder="Dirección Notificación" [(ngModel)]="user.direccionNotificacion">
+      </div>
+      <div class="input-row">
+        <mat-label>Departamento</mat-label>
+        <mat-select (selectionChange)="onDepartamentoSeleccionado($event)">
+          <mat-option *ngFor="let departamento of departamentos" [value]="departamento.IdDepartamento">{{ departamento.NombreDepartamento }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="input-row">
+        <mat-label>Municipio</mat-label>
+        <mat-select [(ngModel)]="user.municipio">
+          <mat-option *ngFor="let municipio of municipios" [value]="municipio.idMunicipio">{{ municipio.nombre }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="input-row">
+        <mat-label>Sexo</mat-label>
+        <mat-select [(ngModel)]="user.sexo">
+          <mat-option *ngFor="let sexo of sexos" [value]="sexo.IdSexo">{{ sexo.NombreSexo }}</mat-option>
+        </mat-select>
+      </div>
+      <div class="input-row2">
+        <mat-label>Adjuntar CUI</mat-label>
+        <input type="file" (change)="onFileSelected($event)">
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" (click)="registrarUsuario()">Registrar</button>
+    </mat-card-actions>
+  </mat-card>
+</div>

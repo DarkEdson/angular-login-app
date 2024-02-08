@@ -1,0 +1,100 @@
+.registro-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center !important;
+  margin-top: 50px !important;
+  margin-bottom: 50px !important;
+  .mat-card {
+    width: 600px; /* Ancho personalizado para la mat-card */
+    margin: 0 10px; /* Margen en los lados de la mat-card */
+    padding-left: 80px; /* Relleno horizontal izquierdo */
+    padding-right: 80px; /* Relleno horizontal derecho */
+    padding-top: 50px; /* Relleno vertical*/
+    padding-bottom: 150px; /* Relleno vertical */
+  }
+
+  img {
+    width: 100px; /* Ancho personalizado para la imagen */
+    height: auto; /* Mantener la relación de aspecto */
+  }
+}
+
+mat-card {
+  border: 2px solid black;
+}
+
+.mat-card-header {
+  justify-content: center;
+  align-items: center !important;
+  margin-bottom: 40px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin-bottom: 10px;
+}
+
+.input-row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-row2 {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.input-row2 mat-label {
+  width: 200px;
+  font-weight: 600;
+  margin-right: 20px;
+  text-align: left; // Alinear las etiquetas a la izquierda
+}
+
+.input-row mat-label {
+  width: 200px;
+  font-weight: 600;
+  margin-right: 20px;
+  text-align: left; // Alinear las etiquetas a la izquierda
+}
+
+.input-row input {
+  border-radius: 10px; // Agregar bordes redondeados a los inputs
+  height:30px;
+  padding: 3px;
+  border: 2px solid black; // Borde centrado y un poco grueso
+  width: calc(100% - 70px); // Ajustar el ancho del input para que esté alineado con la etiqueta
+}
+
+.input-row mat-select {
+  border-radius: 10px; // Agregar bordes redondeados a los inputs
+  height:30px;
+  padding: 3px;
+  border: 2px solid black; // Borde centrado y un poco grueso
+  width: calc(100% - 70px); // Ajustar el ancho del input para que esté alineado con la etiqueta
+}
+
+.create-account-link {
+  margin-top: 10px;
+}
+
+.forgot-password-link {
+  margin-left: 90px; // Alinear el link a olvidé mi contraseña con el input
+  font-size: 12px; // Hacer el texto un poco más pequeño
+}
+
+.mat-card-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+
+@media screen and (max-width: 600px) {
+  mat-card {
+    width: 80%;
+  }
+}

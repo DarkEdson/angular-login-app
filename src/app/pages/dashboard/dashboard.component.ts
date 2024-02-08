@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../auth.service';
+import { AuthService } from '../../auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -20,13 +20,13 @@ export class DashboardComponent implements OnInit {
     this.authService.logout();
   }
 
-  getJwtToken() {
+  async  getJwtToken() {
 
-    this.authService.getCurrentJwtToken().then((token) => {
+    const token = await this.authService.getCurrentJwtToken();
+    if (token) {
       this.jwtTokenObtain = token;
       console.log('JWT Token:', token);
-    });
-    //const jwtToken = this.authService.getCurrentJwtToken();
+    }
 
   }
 }

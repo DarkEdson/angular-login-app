@@ -1,0 +1,22 @@
+<div class="login-container">
+  <mat-card>
+    <mat-card-header >
+      <img src="assets/logoInnova.jpg" alt="Logo"> <!-- Aquí va la imagen -->
+    </mat-card-header>
+    <mat-card-content>
+      <div class="input-row">
+        <label for="usuario">Usuario</label> <!-- Etiqueta para el primer input -->
+        <input id="usuario" matInput [(ngModel)]="email" placeholder="Email" type="email"> <!-- Input para el usuario -->
+      </div>
+      <div class="input-row">
+        <label for="contraseña">Contraseña</label> <!-- Etiqueta para el segundo input -->
+        <input id="contraseña" matInput [(ngModel)]="password" placeholder="Password" type="password"> <!-- Input para la contraseña -->
+      </div>
+      <a class="forgot-password-link" href="#">Olvidé mi contraseña</a> <!-- Enlace para olvidar la contraseña -->
+    </mat-card-content>
+      <mat-card-actions>
+        <button mat-button class="login-button" (click)="login()">Ingresar</button> <!-- Botón para iniciar sesión -->
+        <button mat-button class="create-account-button" (click)="crearUsuario()">Crear Usuario</button> <!-- Botón para crear una cuenta -->
+      </mat-card-actions>
+  </mat-card>
+</div>
