@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-waiting-register',
@@ -7,9 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WaitingRegisterComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this.router.navigate(['']); // Redirige a la raíz después de 10 segundos
+    }, 10000); // 10000 milisegundos = 10 segundos
   }
 
 }

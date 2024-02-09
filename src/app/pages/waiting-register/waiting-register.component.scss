@@ -1,0 +1,18 @@
+.fullscreen-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.centered-content {
+  text-align: center;
+}
+
+.centered-image {
+  margin-bottom: 20px; /* Espacio entre la imagen y el texto */
+}
+
+.message {
+  margin-top: 20px; /* Espacio entre el texto y el borde inferior del contenedor */
+}

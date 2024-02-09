@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient,HttpHeaders } from '@angular/common/http';
 import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
+  private headers = new HttpHeaders().set('Content-Type', 'application/json');
 
   constructor(private http: HttpClient, private router: Router) {}
 
@@ -32,7 +33,8 @@ export class AuthService {
   }
 
   register(user: any) {
-    return this.http.post<any>('https://backend-test-dev-tghq.3.us-1.fl0.io/api/usuario/registro', user)
-      .toPromise();
+    const sendUser = JSON.parse(user)
+    console.log('PREVIO A ENVIAR', sendUser)
+    return this.http.post<any>('http://192.168.1.6:1234/api/usuario/registro', sendUser).toPromise();
   }
 }

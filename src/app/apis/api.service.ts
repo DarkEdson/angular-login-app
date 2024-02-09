@@ -37,4 +37,12 @@ export class ApiService {
     return this.http.get(`${this.baseUrl}/miscelanea/estadoCivil`, { headers: this.headers });
   }
 
+  enviarDocumento(nombreDocumento: string): Observable<any> {
+    return this.http.post(`${this.baseUrl2}/Documento/Documento`, { Codigo: nombreDocumento }, { headers: this.headers });
+  }
+
+  cargarArchivo(archivo: FormData): Observable<any> {
+    return this.http.post(`${this.baseUrl2}/Documento/CargaArchivo`, archivo);
+  }
+
 }

@@ -5,12 +5,13 @@
   text-align: center !important;
   margin-top: 50px !important;
   margin-bottom: 50px !important;
+
   .mat-card {
-    width: 600px; /* Ancho personalizado para la mat-card */
+    width: 900px; /* Ancho personalizado para la mat-card */
     margin: 0 10px; /* Margen en los lados de la mat-card */
     padding-left: 80px; /* Relleno horizontal izquierdo */
     padding-right: 80px; /* Relleno horizontal derecho */
-    padding-top: 50px; /* Relleno vertical*/
+    padding-top: 50px; /* Relleno vertical */
     padding-bottom: 150px; /* Relleno vertical */
   }
 
@@ -20,9 +21,7 @@
   }
 }
 
-mat-card {
-  border: 2px solid black;
-}
+
 
 .mat-card-header {
   justify-content: center;
@@ -30,60 +29,96 @@ mat-card {
   margin-bottom: 40px;
 }
 
-.mat-form-field {
-  width: 100%;
-  margin-bottom: 10px;
+.inputs-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: none !important;
+
+
+  mat-form-field-label{
+    padding-top: 5px;
+    margin-top: 5px;
+  }
+  mat-form-field-underline {
+    background-color: rgba(0, 0, 0, 0);
+  }
+
+  mat-form-field-label-wrapper {
+    position: relative;
+  }
+
+
+  input,
+  mat-select {
+    width: calc(90% - 10px);
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+  }
+
+  .inputDir {
+    width: calc(100% - 60px);
+    padding: 5px;
+    border-radius: 10px;
+    border: 2px solid black;
+    text-align: center;
+  }
+
+  .form-field {
+    width: 100%;
+    align-items: baseline;
+    align-content: baseline;
+    justify-content: baseline;
+    margin-bottom: 5px;
+  }
+
 }
 
-.input-row {
-  display: flex;
-  align-items: center;
-  margin-bottom: 10px;
-}
 
 .input-row2 {
+  margin-top: 10px;
   display: flex;
   align-items: center;
   margin-bottom: 10px;
 }
 
 .input-row2 mat-label {
-  width: 200px;
+  width: 150px;
   font-weight: 600;
-  margin-right: 20px;
+  margin-right: 10px;
+  margin-left: 20px;
   text-align: left; // Alinear las etiquetas a la izquierda
 }
 
-.input-row mat-label {
-  width: 200px;
-  font-weight: 600;
-  margin-right: 20px;
-  text-align: left; // Alinear las etiquetas a la izquierda
-}
 
-.input-row input {
-  border-radius: 10px; // Agregar bordes redondeados a los inputs
+.input-row2 input[type=file] {
+  width: calc(80% - 30px);
   height:30px;
-  padding: 3px;
-  border: 2px solid black; // Borde centrado y un poco grueso
-  width: calc(100% - 70px); // Ajustar el ancho del input para que esté alineado con la etiqueta
+  max-width: 100%;
+  color: hsl(0, 0%, 27%);
+  padding: 1px;
+  background: #fff;
+  border-radius: 10px;
+  border: 2px solid #555;
 }
 
-.input-row mat-select {
-  border-radius: 10px; // Agregar bordes redondeados a los inputs
+input[type=file]::file-selector-button {
+  margin-right: 5px;
+  width: calc(100% - 0px);
+  border: none;
   height:30px;
-  padding: 3px;
-  border: 2px solid black; // Borde centrado y un poco grueso
-  width: calc(100% - 70px); // Ajustar el ancho del input para que esté alineado con la etiqueta
+  background: #fff;
+  padding: 5px 20px;
+  border-radius: 10px;
+  color: black;
+  cursor: pointer;
+  transition: background .2s ease-in-out;
 }
 
-.create-account-link {
-  margin-top: 10px;
-}
-
-.forgot-password-link {
-  margin-left: 90px; // Alinear el link a olvidé mi contraseña con el input
-  font-size: 12px; // Hacer el texto un poco más pequeño
+input[type=file]::file-selector-button:hover {
+  background: gray;
 }
 
 .mat-card-actions {
@@ -93,8 +128,23 @@ mat-card {
 }
 
 
+.div-label{
+  width: calc(90% - 10px); /* Ancho fijo para la etiqueta */
+  font-weight: 600; /* Puedes ajustar el peso de la fuente según tu preferencia */
+  margin-left: 20px;
+  margin-right: 20px; /* Margen derecho para separar la etiqueta del campo de entrada */
+  text-align: left; /* Alinea la etiqueta a la izquierda */
+}
 @media screen and (max-width: 600px) {
-  mat-card {
+  .mat-card {
     width: 80%;
+  }
+
+  .inputs-container {
+    flex-direction: column; /* Apilar los inputs verticalmente en dispositivos pequeños */
+  }
+
+  .inputs-container input {
+    width: 100%; /* Ajustar el ancho al 100% en dispositivos pequeños */
   }
 }

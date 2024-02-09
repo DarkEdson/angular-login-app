@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { AuthService } from '../../auth/auth.service';
+import { Component, OnInit,ViewChild } from '@angular/core';
+import { MatSidenav } from '@angular/material/sidenav';
+import { AuthService } from 'src/app/auth/auth.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -7,26 +8,22 @@ import { AuthService } from '../../auth/auth.service';
   styleUrls: ['./dashboard.component.scss']
 })
 export class DashboardComponent implements OnInit {
-  jwtToken: string | null = null;
-  jwtTokenObtain: string | null = null;
+  @ViewChild('sidenav') sidenav!: MatSidenav;
+
+  toggleSidenav(sidenav: MatSidenav) {
+    sidenav.toggle();
+  }
 
   constructor(private authService: AuthService) {}
 
   ngOnInit() {
-    this.jwtToken = sessionStorage.getItem('jwtToken');
+
   }
 
-  logout() {
+  logout(): void {
     this.authService.logout();
-  }
-
-  async  getJwtToken() {
-
-    const token = await this.authService.getCurrentJwtToken();
-    if (token) {
-      this.jwtTokenObtain = token;
-      console.log('JWT Token:', token);
-    }
 
   }
+
+
 }

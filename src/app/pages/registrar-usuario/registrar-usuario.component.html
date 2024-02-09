@@ -4,95 +4,154 @@
       <img src="assets/logoInnova.jpg" alt="Logo">
     </mat-card-header>
     <mat-card-content>
-      <div class="input-row">
-        <mat-label>Nombres</mat-label> <!-- Etiqueta para el primer input -->
-        <input matInput placeholder="Nombre" [(ngModel)]="user.nombres"> <!-- Input para el usuario -->
-      </div>
-      <div class="input-row">
-        <mat-label>Apellidos</mat-label>
-        <input matInput placeholder="Apellido" [(ngModel)]="user.apellidos">
-      </div>
-      <div class="input-row">
-        <mat-label>CUI</mat-label>
-        <input matInput placeholder="CUI" [(ngModel)]="user.cui">
-      </div>
-      <div class="input-row">
-        <mat-label>Fecha de Nacimiento</mat-label>
-        <input matInput type="date" placeholder="Fecha de nacimiento"  [(ngModel)]="user.fechaSelect">
+      <form [formGroup]="userForm" (ngSubmit)="registrarUsuario()">
+      <div class="inputs-container">
+        <div class="form-field">
+          <div class="div-label">
+          <label>Nombres (*)</label>
+        </div>
+        <input matInput placeholder="Nombre" formControlName="Nombres">
+        </div>
+        <div class="form-field">
+          <div class="div-label">
+            <label>Apellidos (*)</label>
+          </div>
 
-        <mat-datepicker #picker ></mat-datepicker>
+        <input matInput placeholder="Apellido" formControlName="Apellidos">
       </div>
-      <div class="input-row">
-        <mat-label>Estado Civil</mat-label>
-        <mat-select [(ngModel)]="user.estadoCivil">
+      </div>
+      <div class="inputs-container">
+        <div class="form-field">
+          <div class="div-label">
+            <label>Contraseña (*)</label>
+          </div>
+        <input matInput placeholder="Contraseña" formControlName="PalabraClave">
+        </div>
+        <div class="form-field">
+          <div class="div-label">
+            <label> Confirmar Contraseña (*)</label>
+          </div>
+          <input matInput placeholder="Confirmar Contraseña" formControlName="confirmarContrasena">
+        </div>
+      </div>
+      <div class="inputs-container">
+
+        <div class="form-field">
+          <div class="div-label">
+            <label>CUI</label>
+          </div>
+        <input matInput placeholder="CUI" formControlName="NoDocumento">
+        </div>
+        <div class="form-field">
+          <div class="div-label">
+            <label>Fecha de Nacimiento</label>
+          </div>
+        <input matInput type="date" placeholder="Fecha de nacimiento"  formControlName="fechaSelect">
+        <mat-datepicker #picker ></mat-datepicker>
+        </div>
+      </div>
+      <div class="inputs-container">
+        <div class="form-field">
+          <div class="div-label">
+            <label>Estado Civil</label>
+          </div>
+        <mat-select formControlName="IdEstadoCivil">
           <mat-option *ngFor="let estadoCivil of estadosCivil" [value]="estadoCivil.IdEstadoCivil">{{ estadoCivil.NombreEstadoCivil }}</mat-option>
         </mat-select>
       </div>
-      <div class="input-row">
-        <mat-label>Ocupación</mat-label>
-        <input matInput placeholder="Ocupación" [(ngModel)]="user.ocupacion">
+        <div class="form-field">
+          <div class="div-label">
+            <label>Ocupación</label>
+          </div>
+        <input matInput placeholder="Ocupación" formControlName="Ocupacion">
       </div>
-      <div class="input-row">
-        <mat-label>Comunidad Linguistica</mat-label>
-        <mat-select [(ngModel)]="user.comunidadLinguistica">
-          <mat-option *ngFor="let comunidadLinguistica of comunidadesLinguisticas" [value]="comunidadLinguistica.IdComunidadLinguistica">{{ comunidadLinguistica.NombreComunidadLinguistica }}</mat-option>
-        </mat-select>
       </div>
-      <div class="input-row">
-        <mat-label>Pueblo Pertenencia</mat-label>
-        <mat-select [(ngModel)]="user.puebloPertenencia">
+      <div class="inputs-container">
+        <div class="form-field">
+          <div class="div-label">
+            <label>Correo Electronico</label>
+          </div>
+        <input matInput placeholder="Correo Electronico" formControlName="Email">
+      </div>
+      <div class="form-field">
+        <div class="div-label">
+          <label>Comunidad Linguistica</label>
+        </div>
+      <mat-select formControlName="IdComunidadLinguistica">
+        <mat-option *ngFor="let comunidadLinguistica of comunidadesLinguisticas" [value]="comunidadLinguistica.IdComunidadLinguistica">{{ comunidadLinguistica.NombreComunidadLinguistica }}</mat-option>
+      </mat-select>
+      </div>
+      </div>
+      <div class="inputs-container">
+        <div class="form-field">
+          <div class="div-label">
+            <label>Pueblo Pertenencia</label>
+          </div>
+        <mat-select formControlName="IdPuebloPertenencia">
           <mat-option *ngFor="let comunidadLinguistica of pueblosPertenencia" [value]="comunidadLinguistica.IdPuebloPertenencia">{{ comunidadLinguistica.NombrePuebloPertenencia }}</mat-option>
         </mat-select>
-      </div>
-      <div class="input-row">
-        <mat-label>Correo Electronico</mat-label> <!-- Etiqueta para el primer input -->
-        <input matInput placeholder="Correo Electronico" [(ngModel)]="user.correoElectronico"> <!-- Input para el usuario -->
-      </div>
-      <div class="input-row">
-        <mat-label>Contraseña</mat-label>
-        <input matInput placeholder="Contraseña" [(ngModel)]="user.contrasena">
-      </div>
-      <div class="input-row">
-        <mat-label>Confirmar Contraseña</mat-label>
-        <input matInput placeholder="Confirmar Contraseña" [(ngModel)]="user.confirmarContrasena">
-      </div>
-      <div class="input-row">
-        <mat-label>Telefono</mat-label> <!-- Etiqueta para el primer input -->
-        <input matInput placeholder="Telefono" [(ngModel)]="user.telefono"> <!-- Input para el usuario -->
-      </div>
-      <div class="input-row">
-        <mat-label>Whatsapp</mat-label>
-        <input matInput placeholder="Whatsapp" [(ngModel)]="user.whatsapp">
-      </div>
-      <div class="input-row">
-        <mat-label>Dirección Notificación</mat-label>
-        <input matInput placeholder="Dirección Notificación" [(ngModel)]="user.direccionNotificacion">
-      </div>
-      <div class="input-row">
-        <mat-label>Departamento</mat-label>
-        <mat-select (selectionChange)="onDepartamentoSeleccionado($event)">
-          <mat-option *ngFor="let departamento of departamentos" [value]="departamento.IdDepartamento">{{ departamento.NombreDepartamento }}</mat-option>
-        </mat-select>
-      </div>
-      <div class="input-row">
-        <mat-label>Municipio</mat-label>
-        <mat-select [(ngModel)]="user.municipio">
-          <mat-option *ngFor="let municipio of municipios" [value]="municipio.idMunicipio">{{ municipio.nombre }}</mat-option>
-        </mat-select>
-      </div>
-      <div class="input-row">
-        <mat-label>Sexo</mat-label>
-        <mat-select [(ngModel)]="user.sexo">
+        </div>
+        <div class="form-field">
+          <div class="div-label">
+            <label>Sexo</label>
+          </div>
+        <mat-select formControlName="IdSexo">
           <mat-option *ngFor="let sexo of sexos" [value]="sexo.IdSexo">{{ sexo.NombreSexo }}</mat-option>
         </mat-select>
+        <mat-error *ngIf="userForm.get('sexo')?.hasError('required')">Seleccione un sexo</mat-error>
+        </div>
+      </div>
+      <div class="inputs-container">
+        <div class="form-field">
+          <div class="div-label">
+            <label>Departamento</label>
+          </div>
+          <mat-select formControlName="IdDepartamento" (selectionChange)="onDepartamentoSeleccionado($event)">
+            <mat-option *ngFor="let departamento of departamentos" [value]="departamento.IdDepartamento">{{ departamento.NombreDepartamento }}</mat-option>
+          </mat-select>
+        </div>
+        <div class="form-field">
+          <div class="div-label">
+            <label>Municipio</label>
+          </div>
+        <mat-select formControlName="IdMunicipio">
+          <mat-option *ngFor="let municipio of municipios" [value]="municipio.idMunicipio">{{ municipio.nombre }}</mat-option>
+        </mat-select>
+        </div>
+      </div>
+      <div class="inputs-container">
+        <div class="form-field">
+          <div class="div-label">
+            <label>Dirección Notificación</label>
+          </div>
+        <input class="inputDir" matInput placeholder="Dirección Notificación" formControlName="DireccionNotificacion">
+      </div>
+      </div>
+      <div class="inputs-container">
+        <div class="form-field">
+          <div class="div-label">
+            <label>Telefono</label>
+          </div>
+          <input  matInput placeholder="Telefono" formControlName="Telefono"> <!-- Input para el usuario -->
+        </div>
+        <div class="form-field">
+          <div class="div-label">
+            <label>Whatsapp</label>
+          </div>
+          <input matInput placeholder="Whatsapp" formControlName="Whatsapp">
+        </div>
       </div>
       <div class="input-row2">
         <mat-label>Adjuntar CUI</mat-label>
         <input type="file" (change)="onFileSelected($event)">
       </div>
+      <div class="input-row2">
+        <button mat-fab color="yellow" ><mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon></button>
+      </div>
+    </form>
     </mat-card-content>
     <mat-card-actions>
-      <button mat-raised-button color="primary" (click)="registrarUsuario()">Registrar</button>
+      <button mat-raised-button color="primary" (click)="submitForm()">Registrar</button>
     </mat-card-actions>
   </mat-card>
 </div>
