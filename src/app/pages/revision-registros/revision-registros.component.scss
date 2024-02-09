@@ -1,0 +1,45 @@
+/* pending-users.component.scss */
+
+
+.sidenav-container {
+  height: 100vh; /* Establecer el alto al 100% del viewport */
+}
+
+.content { /* Calcular el alto del contenido menos la altura de la barra de encabezado */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  img {
+    margin-left: 50px;
+    max-width: 100%;
+    max-height: 100%;
+  }
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th, td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: center;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+button {
+  margin-right: 5px;
+}
+
+.table-container {
+  overflow-x: auto;
+}

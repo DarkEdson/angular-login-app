@@ -1,0 +1,14 @@
+<div class="header">
+  <button mat-icon-button (click)="toggleSidenav(sidenav)">
+    <mat-icon>menu</mat-icon>
+  </button>
+</div>
+
+<mat-sidenav #sidenav class="sidenav" fixedTopGap="64">
+  <div class="menu">
+    <button mat-button (click)="home()">Inicio</button>
+    <button mat-button (click)="revisarRegistros()">Revision Registros</button>
+    <button mat-button>Acreditacion Manejo Forestal</button>
+    <button mat-button (click)="logout()">Cerrar Sesión</button>
+  </div>
+</mat-sidenav>

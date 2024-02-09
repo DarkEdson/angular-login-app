@@ -1,0 +1,46 @@
+<app-menu> </app-menu>
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav-content>
+    <div class="content-container">
+      <div class="content">
+        <!-- Contenido principal aquí -->
+        <div class="headerContent">
+          <img src="assets/logoInnova.jpg" alt="Imagen centrada" />
+          <h2>Registro de Usuarios Pendientes</h2>
+        </div>
+      </div>
+
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Email</th>
+              <th>Nombre Completo</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Aquí iterar sobre la lista de usuarios pendientes y mostrar cada fila -->
+            <tr *ngFor="let user of dataSource">
+              <td>{{ user.index }}</td>
+              <td>{{ user.email }}</td>
+              <td>{{ user.fullName }}</td>
+              <td>
+                <button mat-icon-button (click)="viewUser(user)">
+                  <mat-icon>view</mat-icon>
+                </button>
+                <button mat-icon-button (click)="approveUser(user)">
+                  <mat-icon>done</mat-icon>
+                </button>
+                <button mat-icon-button (click)="denyUser(user)">
+                  <mat-icon>clear</mat-icon>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>
