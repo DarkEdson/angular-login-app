@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-  private baseUrl = 'https://backend-test-dev-tghq.3.us-1.fl0.io/api';
+  private baseUrl = 'http://192.168.1.6:1234/api';
   private baseUrl2 = 'http://67.211.45.199:2302/api'
   private headers = new HttpHeaders().set('Content-Type', 'application/json');
   private headers2 = new HttpHeaders().set('Content-Type', 'application/json, multipart/form-data');
